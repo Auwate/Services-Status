@@ -143,7 +143,7 @@ class TicketAdmin(admin.ModelAdmin):
                     DropdownFilter),
                    ('sub_service',
                     RelatedDropdownFilter))
-    ordering = ['begin']
+    ordering = ['-begin']
 
     actions = [notify_users]
 
