@@ -319,7 +319,7 @@ class Ticket(models.Model):
                                null=True, default=3, verbose_name='Status')
     begin = models.DateTimeField()
     end = models.DateTimeField(null=True, blank=True)
-    ticket_utc = models.CharField(choices=UTC_CHOICES, default='UTC-05:00')
+    ticket_utc = models.CharField(choices=UTC_CHOICES, max_length=10, default='UTC-05:00')
     
     # UTC-5 is standard for Miami, but drop-down with list is appropriate
 
