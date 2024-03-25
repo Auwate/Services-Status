@@ -36,7 +36,7 @@
                         <p><span class="bold">Status: </span>{{ ticket.status.tag }}</p>
 
                         {% if ticket.status.tag == "Planned" %}
-                            <p><span class="bold">Action Date: </span>{{ ticket.begin }} | {{ticket.ticket_utc}}</p>
+                            <p><span class="bold">Action Date: </span>{{ ticket.begin }}{% if 'ticket_utc' in ticket %} | {{ticket.ticket_utc}} {% endif %}</p>
 
                             {% if ticket.end|localtime|timesince >= "1 min" %}
                                 <p><span class="bold">Current Status Information: </span>Completed</p>
