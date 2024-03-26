@@ -257,6 +257,10 @@ class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = '__all__'
+        labels = {
+            'begin' : "UTC-05:00",
+            'end' : "UTC-05:00",
+        }
 
     def __init__(self, *args, **kwargs):
 
