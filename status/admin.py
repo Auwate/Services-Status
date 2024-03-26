@@ -121,7 +121,7 @@ class TicketAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Sub-Service on process', {'fields': ['ticket_id', 'client_domains', 'services', 'sub_service', 'status']}),
-        ('Date information', {'fields': ['begin', 'end', 'ticket_utc']}),
+        ('Date information', {'fields': ['begin', 'end']}),
         ('Additional Information', {'fields': ['action_description', 'action_notes']}),
         (None, {'fields': ['notify_action']}),
     ]
