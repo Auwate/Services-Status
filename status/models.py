@@ -274,6 +274,35 @@ class Ticket(models.Model):
         (YES, 'Yes')
     )
 
+    # New addition, allows developers to choose what time-zone they want printed
+    UTC_CHOICES = (
+        ('UTC+00:00', 'UTC+00:00'),
+        ('UTC+01:00', 'UTC+01:00'),
+        ('UTC+02:00', 'UTC+02:00'),
+        ('UTC+03:00', 'UTC+03:00'),
+        ('UTC+04:00', 'UTC+04:00'),
+        ('UTC+05:00', 'UTC+05:00'),
+        ('UTC+06:00', 'UTC+06:00'),
+        ('UTC+07:00', 'UTC+07:00'),
+        ('UTC+08:00', 'UTC+08:00'),
+        ('UTC+09:00', 'UTC+09:00'),
+        ('UTC+10:00', 'UTC+10:00'),
+        ('UTC+11:00', 'UTC+11:00'),
+        ('UTC+12:00', 'UTC+12:00'),
+        ('UTC-01:00', 'UTC-01:00'),
+        ('UTC-02:00', 'UTC-02:00'),
+        ('UTC-03:00', 'UTC-03:00'),
+        ('UTC-04:00', 'UTC-04:00'),
+        ('UTC-05:00', 'UTC-05:00'), # Miami | New York
+        ('UTC-06:00', 'UTC-06:00'),
+        ('UTC-07:00', 'UTC-07:00'),
+        ('UTC-08:00', 'UTC-08:00'),
+        ('UTC-09:00', 'UTC-09:00'),
+        ('UTC-10:00', 'UTC-10:00'),
+        ('UTC-11:00', 'UTC-11:00'),
+        ('UTC-12:00', 'UTC-12:00'),
+    )
+
     ticket_id = models.CharField(unique=True, max_length=10, default=get_new_ticket_id)
 
     # sub-service to sub-services
@@ -290,6 +319,7 @@ class Ticket(models.Model):
                                null=True, default=3, verbose_name='Status')
     begin = models.DateTimeField()
     end = models.DateTimeField(null=True, blank=True)
+    ticket_utc = models.CharField(choices=UTC_CHOICES, max_length=10, default='UTC-05:00')
     
     # UTC-5 is standard for Miami, but drop-down with list is appropriate
 
