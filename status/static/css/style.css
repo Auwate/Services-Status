@@ -94,7 +94,7 @@ html, body {
     text-align: center;
     color: white;
     bottom: 0;
-    position: relative;
+    position: fixed;
 }
 
 #region_select_buttons {
