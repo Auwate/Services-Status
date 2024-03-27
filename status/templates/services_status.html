@@ -53,7 +53,11 @@
 
                         <p id="ticket_description">{{ ticket.action_description | safe }}</p>
                         <!--  Description of the ticket  -->
-                        <p><span class="bold">Latest Update: </span>{{ticket.action_notes}}</p>
+                        
+                        {% if ticket.latest_action_notes %}
+                            <p><span class="bold">Latest Update: </span>{{ticket.latest_action_notes}}</p>
+                        {% endif %}
+
                     </a>
                 </div>
 
