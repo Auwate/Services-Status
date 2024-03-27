@@ -130,18 +130,14 @@ a:hover {
     border: none;
 }
 
-#search {
+#search .row {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
 
-.row {
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-}
-
-.row:hover {
-    background-color: rgb(221, 221, 221);
+.responsive_hover:hover {
+    background-color: rgb(222, 222, 222);
+    transition: background-color 0.1s ease;
 }
 
 #modify_subscription {
