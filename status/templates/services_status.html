@@ -55,7 +55,7 @@
                         <!--  Description of the ticket  -->
                         
                         {% if ticket.latest_action_notes %}
-                            <p><span class="bold">Latest Update: </span>{{ticket.latest_action_notes}}</p>
+                            <p><span class="bold">Latest Update: </span>{{ticket.latest_action_date}} | UTC-05:00 | {{ticket.latest_action_notes}}</p>
                         {% endif %}
 
                     </a>

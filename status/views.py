@@ -99,6 +99,7 @@ class ServicesStatusView(View):
                 if last_log is not None:
                     ticket.latest_log = last_log.status
                     ticket.latest_action_notes = last_log.description()
+                    ticket.latest_action_date = last_log.action_date
                 else:
                     ticket.latest_log = ticket.status
 
