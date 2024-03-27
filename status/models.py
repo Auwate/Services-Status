@@ -342,6 +342,9 @@ class TicketLog(models.Model):
     def description (self):
         if self.action_notes is not None:
             return format_html(self.action_notes)
+        return self.action_notes
+
+    description.allow_tags = True
 
     def __str__(self):
         queryset_list = []
