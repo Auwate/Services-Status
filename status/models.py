@@ -339,6 +339,10 @@ class TicketLog(models.Model):
     action_date = models.DateTimeField()
     action_notes = RichTextField(blank=True, null=True, verbose_name='Notes')
 
+    def description (self):
+        if self.action_notes is not None:
+            return format_html(self.action_notes)
+
     def __str__(self):
         queryset_list = []
         for sub_service in self.ticket.sub_service.all():

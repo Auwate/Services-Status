@@ -97,7 +97,7 @@ class ServicesStatusView(View):
                 last_log = TicketLog.objects.filter(ticket=ticket.id) \
                     .filter(action_date__range=["2012-01-01", timezone.now()]).order_by('action_date').last()
                 if last_log is not None:
-                    ticket.latest_log = last_log.status
+                    ticket.latest_log = TicketLog.description()
                     ticket.action_notes = last_log.action_notes
                 else:
                     ticket.latest_log = ticket.status
