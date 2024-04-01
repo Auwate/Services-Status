@@ -41,7 +41,6 @@ sleep 30
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py create_initial_objects
-python3 manage.py test status.tests
 
 /etc/init.d/nginx start
 gunicorn --access-logfile - --workers 4 --user www-data --group www-data --bind 127.0.0.1:8800 --access-logformat '%(h)s/%({x-forwarded-for}i)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"' ServiceStatus.wsgi:application
