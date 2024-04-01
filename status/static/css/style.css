@@ -94,7 +94,7 @@ html, body {
     text-align: center;
     color: white;
     bottom: 0;
-    position: fixed;
+    position: relative;
 }
 
 #region_select_buttons {
@@ -133,11 +133,6 @@ a:hover {
 #search .row {
     border: 1px solid #ced4da;
     border-radius: .25rem;
-}
-
-.responsive_hover:hover {
-    background-color: rgb(222, 222, 222);
-    transition: background-color 0.1s ease;
 }
 
 #modify_subscription {
