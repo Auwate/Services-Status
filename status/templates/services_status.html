@@ -17,7 +17,7 @@
             </div>
 
             {#Describe this "for" statement functionality#}
-            {% for ticket in ticket_list %}
+            {% for ticket in ticket_list %}     
 
                 <div class="container mt-4 py-3 ticket-instance list_events"
                      style="border-left: 0.6rem solid {{ ticket.status.color_hex }};">
@@ -36,7 +36,7 @@
                         <p><span class="bold">Status: </span>{{ ticket.status.tag }}</p>
 
                         {% if ticket.status.tag == "Planned" %}
-                            <p><span class="bold">Action Date: </span>{{ ticket.begin }}</p>
+                            <p><span class="bold">Action Date: </span>{{ ticket.begin }} UTC-05:00</p>
 
                             {% if ticket.end|localtime|timesince >= "1 min" %}
                                 <p><span class="bold">Current Status Information: </span>Completed</p>
@@ -53,6 +53,11 @@
 
                         <p id="ticket_description">{{ ticket.action_description | safe }}</p>
                         <!--  Description of the ticket  -->
+                        
+                        {% if ticket.latest_action_notes %}
+                            <p><span class="bold">Latest Update: </span>{{ticket.latest_action_date}} | UTC-05:00 {{ticket.latest_action_notes}}</p>
+                        {% endif %}
+
                     </a>
                 </div>
 

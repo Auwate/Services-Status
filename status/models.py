@@ -290,6 +290,9 @@ class Ticket(models.Model):
                                null=True, default=3, verbose_name='Status')
     begin = models.DateTimeField()
     end = models.DateTimeField(null=True, blank=True)
+        
+    # UTC-5 is standard for Miami, but drop-down with list is appropriate
+
     action_description = RichTextField()
     action_notes = RichTextField(blank=True, null=True)
 
@@ -335,6 +338,13 @@ class TicketLog(models.Model):
     status = models.ForeignKey(Status, models.DO_NOTHING)
     action_date = models.DateTimeField()
     action_notes = RichTextField(blank=True, null=True, verbose_name='Notes')
+
+    def description (self):
+        if self.action_notes is not None:
+            return format_html(self.action_notes)
+        return self.action_notes
+
+    description.allow_tags = True
 
     def __str__(self):
         queryset_list = []
