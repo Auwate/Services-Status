@@ -7,7 +7,7 @@ RUN  apt-get install -y python3-pip git nginx libmariadb-dev-compat
 WORKDIR /opt
 
 # Production: https://github.com/amlight/Services-Status.git
-RUN git clone --branch development https://github.com/Auwate/Services-Status.git
+RUN git clone https://github.com/Auwate/Services-Status.git
 
 WORKDIR /opt/Services-Status
 
