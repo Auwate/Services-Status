@@ -6,9 +6,27 @@ For documentation, on tech used and useful tips, check DEV_TIPS.md
 
 ## Recent Changes
 
-### Testing
+- Tickets are now ordered in descending order by the *begin* field (Newest first)
+- Tickets in the main view now contain a latest_update field, which uses the action_description found in TicketLogs.
+- Custom command added to immediately populate the database with Status objects, if they are not there already.
+- Unit tests are being rolled out to test new features.
+- Documentation is being rolled out on a daily basis.
 
-- For quicker development and testing, the logging driver was commented out from docker-compose.yml. When pushing to production remember to uncomment this.
+## Unit Testing
+
+Testing is implemented by running the following command:
+```
+python3 manage.py test status.tests --settings=ServiceStatus.settings-test
+```
+(If python3 does not work, use **python**)
+
+### Development
+
+To create more tests, navigate to the status/tests directory. Each test will be run since they start with *test_*, so write your tests under the test file that covers your domain. For example, if you're testing a new command, do it under *test_commands*.
+
+## Logging Driver
+
+For quicker development and testing, the logging driver was commented out from docker-compose.yml. When pushing to production remember to uncomment this.
 
 ## Deployment Methodology
 
