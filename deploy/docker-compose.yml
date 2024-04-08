@@ -37,7 +37,7 @@ services:
       SSA_SMTPPASS: "changeme"
     ports:
       - 8000:80
-    #logging:
-      #driver: syslog
-      #options:
-        #syslog-address: "udp://yoursyslogserver.intranet.domain.tld:514"
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "udp://yoursyslogserver.intranet.domain.tld:514"
