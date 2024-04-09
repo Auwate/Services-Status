@@ -24,3 +24,4 @@ class TestService(object):
                 Service.objects.create(name="Service test")
 
         assert Service.objects.count() == 1
+        
