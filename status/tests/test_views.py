@@ -7,10 +7,22 @@ class TestTickets(TestCase):
 
     def test_ticket_latest_action_notes_and_date_exist (self):
 
+        # Create all the status objects
+        initial_objects = [
+            {"tag":"Alert", "color_name": "Orange", "color_hex":"#FC810D", "class_design": "fas fa-exclamation-circle"},
+            {"tag":"In Process", "color_name": "Yellow", "color_hex":"#DBBF07", "class_design": "fas fa-tools"},
+            {"tag":"No Issues", "color_name": "Green", "color_hex":"#0AC739", "class_design": "fas fa-check-circle"},
+            {"tag":"Outage", "color_name": "Red", "color_hex":"#F00004", "class_design": "fas fa-times-circle"},
+            {"tag":"Planned", "color_name": "Blue", "color_hex":"#041DBF", "class_design": "far fa-calendar-alt"}
+        ]
+                
+        for data_objects in initial_objects:
+            Status.objects.create(**data_objects)
+
         # Create the required fields
         sub_serv = SubService.objects.create(name='Test_Sub', subservice_description='')
         serv = Service.objects.create(name='Test_Service', service_description='', scope='Inter-Domain')
-        stat = Status.objects.create(tag= "Alert", color_name = "Orange", color_hex = "#FC810D", class_design = "fas fa-exclamation-circle")
+        stat = Status.objects.get(tag="No Issues")
         client = ClientDomain.objects.create(name='Test_Client', domain_description='')
         client.services.set([serv])
 
@@ -31,7 +43,6 @@ class TestTickets(TestCase):
 
         # Get the queryset for the ticket_list
         queryset = response.context['ticket_list']
-        testing_list = []
 
         # Make sure the attribute exists
         for element in queryset:
