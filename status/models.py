@@ -290,8 +290,6 @@ class Ticket(models.Model):
                                null=True, default=3, verbose_name='Status')
     begin = models.DateTimeField()
     end = models.DateTimeField(null=True, blank=True)
-        
-    # UTC-5 is standard for Miami, but drop-down with list is appropriate
 
     action_description = RichTextField()
     action_notes = RichTextField(blank=True, null=True)
