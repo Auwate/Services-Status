@@ -1,5 +1,6 @@
 import pytest
 from django.db import transaction, IntegrityError
+
 from status.models import Service
 
 pytestmark = pytest.mark.django_db

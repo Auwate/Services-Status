@@ -258,8 +258,8 @@ class TicketForm(forms.ModelForm):
         model = Ticket
         fields = '__all__'
         labels = {
-            'begin' : "Begin - Use UTC-05:00",
-            'end' : "End - Use UTC-05:00",
+            'begin' : "Begin - Use UTC",
+            'end' : "End - Use UTC",
         }
 
     def __init__(self, *args, **kwargs):
