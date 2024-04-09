@@ -102,6 +102,8 @@ class ServicesStatusView(View):
                     ticket.latest_action_date = last_log.action_date
                 else:
                     ticket.latest_log = ticket.status
+                    ticket.latest_action_notes = None
+                    ticket.latest_action_date = None
 
         context = {
             "ticket_list": ticket_list,
